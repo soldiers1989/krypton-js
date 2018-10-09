@@ -7,7 +7,7 @@ const log = logger('protocol')
 class Protocol {
   constructor (config = {}) {
     this.magic = config.magic || config.Magic || 0
-    this.addressVersion = config.addressVersion || config.AddressVersion || 23
+    this.addressVersion = config.addressVersion || config.AddressVersion || 45
     this.standbyValidators = config.standbyValidators || config.StandbyValidators || []
     this.seedList = config.seedList || config.SeedList || []
     this.systemFee = config.systemFee || config.SystemFee || DEFAULT_SYSFEE
