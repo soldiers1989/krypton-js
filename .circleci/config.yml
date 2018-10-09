@@ -1,0 +1,85 @@
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
+
+defaults: &defaults
+  working_directory: ~/repo
+  docker:
+    - image: circleci/node:8-stretch
+version: 2
+jobs:
+  setup:
+    <<: *defaults
+    steps:
+      - run:
+          name: "Update npm"
+          command: "sudo npm i -g npm"
+      - run:
+          name: "Versions"
+          command: |
+            node --version
+            npm --version
+            yarn --version
+      - checkout
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+            - krypton-{{ checksum "package-lock.json" }}
+            - krypton-
+      - run: npm ci
+      - save_cache:
+          key: krypton-{{ checksum "package-lock.json" }}
+          paths:
+            - node_modules
+  build:
+    <<: *defaults
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - krypton-{{ checksum "package-lock.json" }}
+            - krypton-
+      - run: npm run prepublishOnly
+  unit-test:
+    <<: *defaults
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - krypton-{{ checksum "package-lock.json" }}
+            - krypton-
+      - run: npm run test:unit
+  integration-test:
+    <<: *defaults
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - krypton-{{ checksum "package-lock.json" }}
+            - krypton-
+      - run: npm run test:integration
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - setup
+      - build:
+          requires:
+            - setup
+          filters:
+            branches:
+              ignore: gh-pages
+      - unit-test:
+          requires:
+            - setup
+          filters:
+            branches:
+              ignore: gh-pages
+      - integration-test:
+          requires:
+            - setup
+          filters:
+            branches:
+              only: master

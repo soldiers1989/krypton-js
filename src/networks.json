@@ -1,0 +1,98 @@
+{
+  "MainNet": {
+    "Name": "MainNet",
+    "ProtocolConfiguration": {
+      "Magic": 6612854,
+      "AddressVersion": 45,
+      "StandbyValidators": [
+        "0364034bff45b5167e54fc8d413365afd25d91ac661b37219bb2c55189dadf69dc",
+        "03152fc6d1a71adad70d41c578e83ee7821cce88d9c33e8d3e6084ee8ad947bd88",
+        "032bd8937ca7d16582601736559f0cbd2bc3416c5d2db981dfe137a4e23aa5bede",
+        "027036610d0d40e256ced015cf191c392288e1b882e0868cd8190248674dc27ecc"
+      ],
+      "SeedList": [
+        "node1.Kaze.solutions:22887",
+        "node2.Kaze.solutions:22887",
+        "node3.Kaze.solutions:22887",
+        "node4.Kaze.solutions:22887",
+        "node5.Kaze.solutions:22887",
+        "node6.Kaze.solutions:22887",
+        "node7.Kaze.solutions:22887"
+      ],
+      "SystemFee": {
+        "EnrollmentTransaction": 10,
+      "IssueTransaction": 5,
+      "PublishTransaction": 5,
+      "RegisterTransaction": 100
+      }
+    },
+    "ExtraConfiguration": {
+      "kryptonDB": "https://kryptonwalletdb.herokuapp.com",
+      "kazescan": "http://51.140.252.17:4000/api/main_net"
+    }
+  },
+  "TestNet": {
+    "Name": "TestNet",
+    "ProtocolConfiguration": {
+      "Magic": 6654128,
+      "AddressVersion": 45,
+      "StandbyValidators": [
+        "0327da12b5c40200e9f65569476bbff2218da4f32548ff43b6387ec1416a231ee8",
+      "026ce35b29147ad09e4afe4ec4a7319095f08198fa8babbe3c56e970b143528d22",
+      "0209e7fd41dfb5c2f8dc72eb30358ac100ea8c72da18847befe06eade68cebfcb9",
+      "039dafd8571a641058ccc832c5e2111ea39b09c0bde36050914384f7a48bce9bf9"
+      ],
+      "SeedList": [
+        "node1.Kaze.solutions:44887",
+      "node2.Kaze.solutions:44887",
+      "node3.Kaze.solutions:44887",
+      "node4.Kaze.solutions:44887",
+      "node5.Kaze.solutions:44887",
+      "node6.Kaze.solutions:44887",
+      "node7.Kaze.solutions:44887"
+      ],
+      "SystemFee": {
+        "EnrollmentTransaction": 1,
+        "IssueTransaction": 0.5,
+        "PublishTransaction": 0.5,
+        "RegisterTransaction": 10
+      }
+    },
+    "ExtraConfiguration": {
+      "kryptonDB": "https://kryptonwalletdb.herokuapp.com",
+      "kazescan": "http://51.140.252.17:4000/api/test_net"
+    }
+  },
+  "VertoNet": {
+    "Name": "VertoNet",
+    "ProtocolConfiguration": {
+      "Magic": 6612854,
+      "AddressVersion": 45,
+      "StandbyValidators": [
+        "0364034bff45b5167e54fc8d413365afd25d91ac661b37219bb2c55189dadf69dc",
+        "03152fc6d1a71adad70d41c578e83ee7821cce88d9c33e8d3e6084ee8ad947bd88",
+        "032bd8937ca7d16582601736559f0cbd2bc3416c5d2db981dfe137a4e23aa5bede",
+        "027036610d0d40e256ced015cf191c392288e1b882e0868cd8190248674dc27ecc"
+      ],
+      "SeedList": [
+        "node1.Kaze.solutions:22887",
+        "node2.Kaze.solutions:22887",
+        "node3.Kaze.solutions:22887",
+        "node4.Kaze.solutions:22887",
+        "node5.Kaze.solutions:22887",
+        "node6.Kaze.solutions:22887",
+        "node7.Kaze.solutions:22887"
+      ],
+      "SystemFee": {
+        "EnrollmentTransaction": 10,
+      "IssueTransaction": 5,
+      "PublishTransaction": 5,
+      "RegisterTransaction": 100
+      }
+    },
+    "ExtraConfiguration": {
+      "kryptonDB": "https://kryptonwalletdb.herokuapp.com",
+      "kazescan": "http://51.140.252.17:4000/api/main_net"
+    }
+  }
+}
