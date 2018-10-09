@@ -1,6 +1,6 @@
 import { Account } from "./wallet"
 
-export const ADDR_VERSION = '17'
+export const ADDR_VERSION = '2d'
 
 export namespace ASSETS {
   export const KAZE: string

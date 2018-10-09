@@ -1,5 +1,5 @@
 
-export const ADDR_VERSION = '17'
+export const ADDR_VERSION = '2d'
 
 export const ASSETS = {
   KAZE: 'KAZE',
