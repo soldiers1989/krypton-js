@@ -4,8 +4,8 @@ import { DEFAULT_PRICE } from '../consts'
 
 const log = logger('api')
 
-//const CURRENCY = ['aud', 'brl', 'cad', 'chf', 'clp', 'cny', 'czk', 'dkk', 'eur', 'gbp', 'hkd', 'huf', 'idr', 'ils', 'inr', 'jpy', 'krw', 'mxn', 'myr', 'nok', 'nzd', 'php', 'pkr', 'pln', 'rub', 'sek', 'sgd', 'thb', 'try', 'twd', 'usd', 'zar']
-const CURRENCY = [ 'chf','usd']
+// const CURRENCY = ['aud', 'brl', 'cad', 'chf', 'clp', 'cny', 'czk', 'dkk', 'eur', 'gbp', 'hkd', 'huf', 'idr', 'ils', 'inr', 'jpy', 'krw', 'mxn', 'myr', 'nok', 'nzd', 'php', 'pkr', 'pln', 'rub', 'sek', 'sgd', 'thb', 'try', 'twd', 'usd', 'zar']
+const CURRENCY = ['chf', 'usd']
 
 /**
  * Returns the price of coin in the symbol given
@@ -54,7 +54,7 @@ function query (url, currency) {
   if (CURRENCY.includes(currency)) {
     return axios.get(`${url}?limit=0&convert=${currency}`)
       .then((response) => {
-        log.info(response);
+        log.info(response)
         const { data } = DEFAULT_PRICE.data
         if (data.error) throw new Error(data.error)
         return mapPrices(data, currency)
