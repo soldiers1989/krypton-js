@@ -1,9 +1,11 @@
 import axios from 'axios'
 import logger from '../logging'
+import { DEFAULT_PRICE } from '../consts'
 
 const log = logger('api')
 
-const CURRENCY = ['aud', 'brl', 'cad', 'chf', 'clp', 'cny', 'czk', 'dkk', 'eur', 'gbp', 'hkd', 'huf', 'idr', 'ils', 'inr', 'jpy', 'krw', 'mxn', 'myr', 'nok', 'nzd', 'php', 'pkr', 'pln', 'rub', 'sek', 'sgd', 'thb', 'try', 'twd', 'usd', 'zar']
+//const CURRENCY = ['aud', 'brl', 'cad', 'chf', 'clp', 'cny', 'czk', 'dkk', 'eur', 'gbp', 'hkd', 'huf', 'idr', 'ils', 'inr', 'jpy', 'krw', 'mxn', 'myr', 'nok', 'nzd', 'php', 'pkr', 'pln', 'rub', 'sek', 'sgd', 'thb', 'try', 'twd', 'usd', 'zar']
+const CURRENCY = [ 'chf','usd']
 
 /**
  * Returns the price of coin in the symbol given
@@ -11,7 +13,7 @@ const CURRENCY = ['aud', 'brl', 'cad', 'chf', 'clp', 'cny', 'czk', 'dkk', 'eur',
  * @param {string} currency - Three letter currency symbol.
  * @return {Promise<number>} price
  */
-export const getPrice = (coin = 'KAZE', currency = 'usd') => {
+export const getPrice = (coin = 'KAZE', currency = 'chf') => {
   log.warn(`This is deprecated in favor of getPrices. There is a known bug for KEP5 tokens with this function.`)
   return query(`https://api.coinmarketcap.com/v1/ticker/${coin.toLowerCase()}/`, currency)
     .then((mapping) => {
@@ -31,7 +33,7 @@ export const getPrice = (coin = 'KAZE', currency = 'usd') => {
  * @param {string} [currency] - Three letter currency symbol.
  * @return {Promise<object>} object mapping symbol to price
  */
-export const getPrices = (coins = ['KAZE'], currency = 'usd') => {
+export const getPrices = (coins = ['KAZE'], currency = 'chf') => {
   return query(`https://api.coinmarketcap.com/v1/ticker/`, currency)
     .then((mapping) => {
       coins = coins.map((coin) => coin.toUpperCase())
@@ -52,7 +54,8 @@ function query (url, currency) {
   if (CURRENCY.includes(currency)) {
     return axios.get(`${url}?limit=0&convert=${currency}`)
       .then((response) => {
-        const { data } = response
+        log.info(response);
+        const { data } = DEFAULT_PRICE.data
         if (data.error) throw new Error(data.error)
         return mapPrices(data, currency)
       })

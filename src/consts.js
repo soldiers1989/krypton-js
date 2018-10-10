@@ -61,6 +61,51 @@ export const DEFAULT_ACCOUNT_CONTRACT = {
   'deployed': false
 }
 
+export const DEFAULT_PRICE = {
+  'data':[
+    {
+        "id": "kaze", 
+        "name": "KAZE", 
+        "symbol": "KAZE", 
+        "rank": "1", 
+        "price_usd": "0.3", 
+        "price_btc": "0.000047", 
+        "24h_volume_usd": "3744314339.06", 
+        "market_cap_usd": "113625509468", 
+        "available_supply": "17314662.0", 
+        "total_supply": "100000000.0", 
+        "max_supply": "15000000.0", 
+        "percent_change_1h": "-0.18", 
+        "percent_change_24h": "-0.8", 
+        "percent_change_7d": "1.04", 
+        "last_updated": "1539181526", 
+        "price_chf": "0.3", 
+        "24h_volume_chf": "3706901150.18", 
+        "market_cap_chf": "112490163378"
+    }, 
+    {
+        "id": "stream", 
+        "name": "STREAM", 
+        "symbol": "STREAM", 
+        "rank": "2", 
+        "price_usd": "0.1", 
+        "price_btc": "0.000016", 
+        "24h_volume_usd": "1349407304.26", 
+        "market_cap_usd": "23158602357.0", 
+        "available_supply": "4084786.0", 
+        "total_supply": "100000000.0", 
+        "max_supply": "100000000.0", 
+        "percent_change_1h": "-0.22", 
+        "percent_change_24h": "-0.44", 
+        "percent_change_7d": "2.79", 
+        "last_updated": "1539181536", 
+        "price_chf": "0.16", 
+        "24h_volume_chf": "1335924026.48", 
+        "market_cap_chf": "22927201603.0"
+    }
+  ]
+}
+
 export const KAZE_NETWORK = {
   MAIN: 'MainNet',
   TEST: 'TestNet'

@@ -53,6 +53,10 @@ export const DEFAULT_ACCOUNT_CONTRACT: {
   deployed: boolean
 }
 
+export const DEFAULT_PRICE: {
+  data: any[]
+}
+
 export namespace KAZE_NETWORK {
   export const MAIN: string
   export const TEST: string
